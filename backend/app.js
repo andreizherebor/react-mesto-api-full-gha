@@ -39,8 +39,8 @@ app.use(errorLogger);
 app.use(errors());
 app.use(handelError);
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', () => {
-  console.log('Connection successful');
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
+  useNewUrlParser: true,
 });
 
 app.listen(PORT, () => {
