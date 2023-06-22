@@ -15,8 +15,8 @@ import Login from "./Login";
 import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
 import InfoTooltip from "./InfoTooltip";
-import resolve from "../images/resolve.svg";
-import reject from "../images/reject.svg";
+import resolve from "../images/popup/Resolve.svg";
+import reject from "../images/popup/Refusal.svg";
 
 function App() {
   const navigate = useNavigate();
