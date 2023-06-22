@@ -11,6 +11,6 @@
 
 IP-адрес x.x.x.x
 
-Frontend https://...
+Frontend https://andreizherebor.nomoreparties.sbs/
 
-Backend https://...
+Backend https://api.andreizherebor.nomoreparties.sbs/
