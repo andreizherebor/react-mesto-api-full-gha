@@ -1,4 +1,5 @@
 /* eslint-disable consistent-return */
+const { JWT_SECRET, NODE_ENV } = process.env;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
@@ -38,7 +39,7 @@ const createUser = (req, res, next) => {
       User.create({
         name, about, avatar, email, password: hash,
       })
-        .then(() => res.status(200).send({
+        .then(() => res.status(201).send({
           data: {
             name, about, avatar, email,
           },
@@ -97,7 +98,7 @@ const login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'super_secret', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, `${NODE_ENV === 'production' ? JWT_SECRET : 'super_secret'}`, { expiresIn: '7d' });
       res.send({ token });
     })
     .catch(next);
